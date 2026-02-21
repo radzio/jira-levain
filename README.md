@@ -1,5 +1,7 @@
 # jira-levain
 
+Part of [Plugin Patisserie](https://github.com/radzio/plugin-patisserie) — artisanal Claude Code plugins, freshly baked by Baker.
+
 Claude Code plugin that gathers Jira ticket context — hierarchy, linked issues, comments, Confluence docs — and prepares a structured implementation or debugging plan. Levain is the sourdough starter that kicks off the entire bake.
 
 ## What it does
