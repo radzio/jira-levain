@@ -1,0 +1,5 @@
+{
+  "name": "jira-levain",
+  "version": "0.1.0",
+  "description": "Starter for your next bake — gather Jira ticket context from hierarchy and Confluence, then prepare an implementation plan"
+}
