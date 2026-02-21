@@ -35,15 +35,23 @@ Pass any Jira ticket key. The plugin will gather context and walk you through cl
 
 ## Prerequisites
 
-- **Jira MCP server** (required) — provides ticket data via MCP tools. Common packages:
-  - [`@anthropic/mcp-atlassian`](https://github.com/anthropic/mcp-atlassian)
-  - [`mcp-atlassian`](https://github.com/sooperset/mcp-atlassian)
+You need a Jira (and optionally Confluence) MCP server. Pick one:
 
-- **Confluence MCP server** (optional) — enables reading linked Confluence pages. Often bundled with the Jira MCP server above.
+### Option 1: Atlassian plugin for Claude Code (recommended)
 
-### MCP setup
+```bash
+claude plugin add atlassian
+```
 
-Add a Jira MCP server to your Claude Code configuration (`.mcp.json` or project settings). Example:
+Official plugin — handles Jira + Confluence, authenticates via OAuth. No API tokens needed.
+
+### Option 2: mcp-atlassian via uvx
+
+```bash
+claude mcp add atlassian -s user -- uvx mcp-atlassian
+```
+
+Community package from [sooperset/mcp-atlassian](https://github.com/sooperset/mcp-atlassian). Supports Cloud and Server/Data Center. Requires API tokens — set in `.mcp.json`:
 
 ```json
 {
@@ -63,3 +71,11 @@ Add a Jira MCP server to your Claude Code configuration (`.mcp.json` or project 
   }
 }
 ```
+
+### Option 3: Atlassian remote MCP server
+
+```bash
+claude mcp add --transport sse atlassian https://mcp.atlassian.com/v1/sse
+```
+
+Official remote server from [atlassian/atlassian-mcp-server](https://github.com/atlassian/atlassian-mcp-server). Cloud only, authenticates via OAuth.
